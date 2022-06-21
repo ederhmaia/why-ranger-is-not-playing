@@ -1,0 +1,19 @@
+syntax = 'proto3';
+
+// api services
+service PhraseService {
+    // local methods
+    rpc List (Void) returns (PhraseListResponse);
+}
+
+// api entities
+message Void{} // void request
+message Phrase{
+    string author = 1;  // type string, name author, order 1
+    string content = 2;
+}
+
+// api responses
+message PhraseListResponse {
+    repeated Phrase phrases = 1; //create an array [{Phrase}, {Phrase}, {Phrase}...]
+}
